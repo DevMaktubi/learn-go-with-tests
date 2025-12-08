@@ -2,10 +2,11 @@ package main
 
 import "fmt"
 
-func Hello(name string) string {
-	return "Hello, " + name + "!"
-}
+const prefix = "Hello, %s!"
 
-func main() {
-	fmt.Println(Hello("Breno"))
+func Hello(name string) string {
+	if name == "" {
+		name = "World"
+	}
+	return fmt.Sprintf(prefix, name)
 }
