@@ -2,11 +2,20 @@ package main
 
 import "fmt"
 
-const prefix = "Hello, %s!"
+const prefixEnglish = "Hello, %s!"
+const prefixSpanish = "Hola, %s!"
+const prefixFrench = "Bonjour, %s!"
 
-func Hello(name string) string {
+func Hello(name, lang string) string {
 	if name == "" {
 		name = "World"
 	}
-	return fmt.Sprintf(prefix, name)
+	prefix := prefixEnglish
+	switch lang {
+		case "Spanish":
+			prefix = prefixSpanish
+		case "French":
+			prefix = prefixFrench
+	}
+	return fmt.Sprintf(prefix,name)
 }
